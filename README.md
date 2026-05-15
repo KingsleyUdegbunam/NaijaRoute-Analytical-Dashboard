@@ -39,6 +39,18 @@ The dashboard simulates live logistics telemetry across Nigerian routes and hubs
 
 The stream is scoped to Nigerian logistics regions and corridors including Lagos, Abuja, Kano, Port Harcourt, Onitsha, and Maiduguri.
 
+## Core Features
+
+- Real-time mocked logistics stream for Nigerian shipment operations.
+- Live line, area, and bar charts powered by ECharts.
+- Metric cards for active shipments, delays, on-time rate, and active vehicles.
+- Interactive filters for region, shipment status, time window, visible metrics, and search.
+- Enter-to-apply search with clear and reset controls.
+- Live shipment map, priority shipment table, hub backlog, and activity feed.
+- Regional delay heatmap showing pressure by region and time bucket.
+- Dark/light mode and keyboard shortcuts.
+- Payload validation, malformed payload handling, reconnect simulation, and bounded buffers.
+
 ## Architecture
 
 - `src/services/streamSimulator.ts` simulates a live logistics stream with shipment updates, hub pressure, ETA changes, delays, exceptions, malformed payloads, and reconnect states.
