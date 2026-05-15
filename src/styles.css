@@ -223,7 +223,7 @@ h2 {
 .control-secondary {
   display: grid;
   gap: 10px;
-  align-items: center;
+  align-items: start;
   min-width: 0;
 }
 
@@ -257,6 +257,16 @@ h2 {
   gap: 7px;
 }
 
+.control-primary > .select-group,
+.control-primary > .toolbar-actions {
+  margin-top: 18px;
+}
+
+.control-primary > .toolbar-actions,
+.control-primary > .select-group {
+  align-items: center;
+}
+
 .segmented {
   overflow: visible;
 }
@@ -264,6 +274,7 @@ h2 {
 .segmented button,
 .icon-button,
 .search-box,
+.reset-button,
 select {
   min-height: 42px;
   border: 1px solid var(--border);
@@ -292,6 +303,7 @@ select {
 
 .segmented button:hover,
 .icon-button:hover,
+.reset-button:hover:not(:disabled),
 select:hover {
   border-color: color-mix(in srgb, var(--brand) 38%, var(--border));
 }
@@ -397,8 +409,49 @@ select:hover {
   align-items: center;
   gap: 10px;
   min-width: 0;
-  padding: 0 14px;
+  padding: 0 46px 0 14px;
   color: var(--brand);
+}
+
+.search-control {
+  position: relative;
+  min-width: 0;
+  padding-top: 18px;
+}
+
+.search-clear {
+  position: absolute;
+  top: 22px;
+  right: 4px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  min-height: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.search-clear:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.search-feedback {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  max-width: calc(100% - 8px);
+  overflow: hidden;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.77rem;
+  font-weight: 750;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .search-box input {
@@ -419,6 +472,21 @@ select {
   display: grid;
   width: 44px;
   place-items: center;
+}
+
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  color: var(--muted);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.reset-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
 }
 
 .summary-card {
@@ -975,6 +1043,11 @@ select {
   .control-primary,
   .control-secondary {
     grid-template-columns: 1fr;
+  }
+
+  .control-primary > .select-group,
+  .control-primary > .toolbar-actions {
+    margin-top: 0;
   }
 
   .select-group {

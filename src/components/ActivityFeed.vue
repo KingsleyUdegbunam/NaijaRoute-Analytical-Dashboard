@@ -43,7 +43,7 @@ const formatTime = (timestamp: number) =>
         </div>
         <div class="feed-copy">
           <strong>{{ event.message }}</strong>
-          <span>{{ event.shipmentId }} · {{ event.route }} · {{ event.delayMinutes }}m delay</span>
+          <span>{{ event.shipmentId }} - {{ event.route }} - {{ event.delayMinutes }}m delay</span>
         </div>
         <time>{{ formatTime(event.timestamp) }}</time>
       </article>

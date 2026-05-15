@@ -82,7 +82,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
       const regionMatch = regionFilter.value === 'all' || shipment.region === regionFilter.value;
       const statusMatch = statusFilter.value === 'all' || shipment.status === statusFilter.value;
       const textMatch = matchesQuery(
-        `${shipment.shipmentId} ${shipment.vehicleId} ${shipment.origin} ${shipment.destination} ${shipment.currentHub} ${shipment.region} ${shipment.cargo}`
+        `${shipment.shipmentId} ${shipment.vehicleId} ${shipment.routeId} ${shipment.origin} ${shipment.destination} ${shipment.currentHub} ${shipment.region} ${shipment.status} ${shipment.cargo}`
       );
       return regionMatch && statusMatch && textMatch;
     });
@@ -213,6 +213,15 @@ export const useDashboardStore = defineStore('dashboard', () => {
     };
   }
 
+  function resetFilters() {
+    query.value = '';
+    timeRange.value = '1h';
+    severityFilter.value = 'all';
+    regionFilter.value = 'all';
+    statusFilter.value = 'all';
+    visibleDatasets.value = Object.fromEntries(datasets.map((dataset) => [dataset.key, true]));
+  }
+
   function noteDroppedFrame() {
     droppedCount.value += 1;
   }
@@ -279,6 +288,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     setQuery,
     setTheme,
     toggleDataset,
+    resetFilters,
     noteDroppedFrame
   };
 });
