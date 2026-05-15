@@ -71,7 +71,7 @@ const formatNaira = (value: number | undefined) => {
     <main class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Nigeria logistics control tower</p>
+          <p class="eyebrow">NaijaRoute Control Tower</p>
           <h1>Live shipment operations</h1>
         </div>
 
